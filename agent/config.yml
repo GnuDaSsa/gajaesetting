@@ -1,0 +1,19 @@
+lastChangelogVersion: 0.10.1
+modelRoles:
+  default: grok-build/grok-composer-2.5-fast
+# Avoid new-session fallback to Anthropic OAuth Sonnet (404) — restrict fallbacks to Grok
+enabledModels:
+  - grok-build/grok-composer-2.5-fast
+  - grok-build/*
+modelProviderOrder:
+  - grok-build
+  - openai-codex
+  - factchat-gateway
+  - google-gemini-cli
+  - google-antigravity
+task:
+  agentModelOverrides:
+    executor: factchat-gateway/gpt-5.5:high
+    planner: openai-codex/gpt-5.5:high
+    architect: google-antigravity/gemini-3.1-pro-low:medium
+    critic: factchat-gateway/claude-opus-4-8:high

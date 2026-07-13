@@ -1,0 +1,11 @@
+# GJC — prefer wrapper (~/.local/bin/gjc) for auth-broker shim
+export PATH="$HOME/.local/bin:$PATH"
+
+# Optional: force Grok on every interactive gjc launch (config already sets default)
+# gjc() {
+#   if print -l -- "$@" | grep -qE '^(--model|-m)(=|$)'; then
+#     command gjc "$@"
+#   else
+#     command gjc --model grok-build/grok-composer-2.5-fast "$@"
+#   fi
+# }

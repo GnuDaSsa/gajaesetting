@@ -1,0 +1,30 @@
+#!/bin/sh
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$HOME/.bun/bin:$PATH"
+AI_CLI="$HOME/.bun/install/global/node_modules/@gajae-code/ai/src/cli.ts"
+# Compatibility shim: gjc 0.10.1 documents auth-broker, but the top-level CLI
+# currently treats it as a normal prompt. Route common auth-broker forms to
+# the underlying @gajae-code/ai OAuth CLI instead to avoid runaway TUI/model calls.
+if [ "$1" = "auth-broker" ]; then
+  shift
+  case "$1" in
+    login)
+      shift
+      exec "$HOME/.bun/bin/bun" "$AI_CLI" login "$@"
+      ;;
+    logout)
+      shift
+      exec "$HOME/.bun/bin/bun" "$AI_CLI" logout "$@"
+      ;;
+    status)
+      shift
+      exec "$HOME/.bun/bin/bun" "$AI_CLI" status "$@"
+      ;;
+    *)
+      echo "gjc wrapper: auth-broker subcommand '$1' is not supported by installed gjc 0.10.1 wrapper." >&2
+      echo "Supported compatibility commands: login, logout, status." >&2
+      exit 64
+      ;;
+  esac
+fi
+exec "$HOME/.bun/bin/gjc" "$@"
