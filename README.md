@@ -4,7 +4,7 @@ Portable **hybrid multi-vendor** setup for [@gajae-code/coding-agent](https://gi
 
 | Role | Model | Auth |
 |------|--------|------|
-| **default** | `grok-build/grok-composer-2.5-fast` | Grok OAuth |
+| **default** | `grok-build/grok-4.5` | Grok OAuth |
 | **executor** | `factchat-gateway/gpt-5.5:high` | Mindlogic gateway API key |
 | **planner** | `openai-codex/gpt-5.5:high` | OpenAI Codex OAuth |
 | **architect** | `google-antigravity/gemini-3.1-pro-low:medium` | Google Antigravity OAuth |
@@ -55,7 +55,13 @@ agent/.env.example    → ~/.gjc/agent/.env (manual)
 bin/gjc-wrapper       → ~/.local/bin/gjc
 snippets/             → optional shell helpers
 scripts/smoke-roles.sh
+docs/oauth-db.md      → 다른 PC에서 agent.db 연동
+docs/telegram-notify.md → Telegram 알림/답장 온보딩
 ```
+
+## OAuth DB on another machine
+
+`~/.gjc/agent/agent.db`는 **git에 없음**. 복사 / 재로그인 / broker → **[docs/oauth-db.md](docs/oauth-db.md)**
 
 ## Notes
 

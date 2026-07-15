@@ -6,6 +6,6 @@ export PATH="$HOME/.local/bin:$PATH"
 #   if print -l -- "$@" | grep -qE '^(--model|-m)(=|$)'; then
 #     command gjc "$@"
 #   else
-#     command gjc --model grok-build/grok-composer-2.5-fast "$@"
+#     command gjc --model grok-build/grok-4.5 "$@"
 #   fi
 # }

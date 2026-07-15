@@ -6,7 +6,7 @@ run() {
   echo "== $role ($model)"
   gjc -p --no-session --no-tools --model "$model" "Reply with exactly one line: OK-$role"
 }
-run default grok-build/grok-composer-2.5-fast
+run default grok-build/grok-4.5
 run executor factchat-gateway/gpt-5.5:high
 run planner openai-codex/gpt-5.5:high
 run architect google-antigravity/gemini-3.1-pro-low:medium

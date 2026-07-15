@@ -1,9 +1,9 @@
 lastChangelogVersion: 0.10.1
 modelRoles:
-  default: grok-build/grok-composer-2.5-fast
+  default: grok-build/grok-4.5
 # Avoid new-session fallback to Anthropic OAuth Sonnet (404) — restrict fallbacks to Grok
 enabledModels:
-  - grok-build/grok-composer-2.5-fast
+  - grok-build/grok-4.5
   - grok-build/*
 modelProviderOrder:
   - grok-build
